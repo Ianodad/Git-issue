@@ -1,0 +1,38 @@
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* background: #e74c3c !important; */
+}
+p {
+  font-size:16px
+}
+
+#layout{
+  height: auto;
+  /* background-color: black; */
+}
+#top-section {
+  height: 2.5em;
+}
+#layout-logo{
+  /* background-color: red; */
+}
+#layout-menu {
+  /* background-color:yellow; */
+  height: 100%;
+}
+#bottom-section{
+
+}
+
+#layout-sidemenu{
+  /* background-color:green; */
+
+}
+
+#layout-dashboard {
+  background-color:grey;
+}
