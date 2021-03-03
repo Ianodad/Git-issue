@@ -6,8 +6,8 @@ class Index extends Component {
     render() {
         return (
             <div>
-                <SignIn/>
-                {/* <SignUp/> */}
+                {/* <SignIn/> */}
+                <SignUp/>
             </div>
         )
     }

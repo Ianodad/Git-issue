@@ -1,18 +1,17 @@
-import React from 'react'
+import React, {} from 'react'
 import {useFormikContext} from 'formik';
 
-const SubmitButton = ({title, submitStyle, buttonColor, width, buttonType}) => {
-  const [textColor, setTextButton] = useState('');
+const SubmitButton = ({title, style}) => {
 
-  useEffect(() => {
-    if (buttonColor == 'white') {
-      setTextButton('primary');
-    }
-  }, [buttonColor]);
+
 
   const {handleSubmit} = useFormikContext();
   return (
-    <Button
+    <div className="form-group">
+      <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-block" style={{...style}}>
+                  {title}
+       </button>
+    {/* <Button
       style={styles.button}
       title={title}
       color={buttonColor}
@@ -20,7 +19,8 @@ const SubmitButton = ({title, submitStyle, buttonColor, width, buttonType}) => {
       // width={width}
       buttonType
       onPress={handleSubmit}
-    />
+    /> */}
+    </div>
   );
 };
 

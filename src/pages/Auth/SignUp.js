@@ -1,38 +1,75 @@
-import React from 'react'
+import React from 'react';
+import { Formik } from "formik";
+import * as Yup from 'yup';
+
 import SocialButton from "../../components/SocialButton";
+import {Form, FormField, SubmitButton} from '../../components/Forms';
 import './SignUp.css'
+
 function SignUp() {
+    const validationSchema = Yup.object().shape({
+  username : Yup.string()
+    .required()
+    .label('Password'),
+  email: Yup.string().required().label("Email"),
+  password: Yup.string().required().min(3, 'pretty sure this will be hacked').label('Password'),
+  
+});
+
+  const handleSignUp=({username, password})=>{
+      console.log(username)
+      console.log(password)
+  }
     return (
-        <div>
           <div className="signup-form">
-        <form action="/examples/actions/confirmation.php" method="post">
-          <h2 className="text-center">Sign Up</h2>       
-        <div>
-            <SocialButton/>
-        </div>
-          <div className="form-group">
-            <input type="text" className="form-control" placeholder="Username" required="required" />
+            <Form
+          initialValues={{ username: "", email:"", password: "" }}
+          validationSchema={validationSchema}
+          onSubmit={(values) => handleSignUp(values)}
+        >
+          <h2 className="text-center">Sign Up</h2>
+          <div>
+            <SocialButton />
           </div>
-          <div className="form-group">
-            <input type="email" className="form-control" placeholder="Email" required="required" />
-          </div>
-          <div className="form-group">
-            <input type="password" className="form-control" placeholder="Password" required="required" />
-          </div>
-          <div className="form-group">
-            <input type="password" className="form-control" placeholder="Confirm Password" required="required" />
-          </div>
-          <div className="form-group">
-            <button type="submit" className="btn btn-primary btn-block">Log in</button>
-          </div>
-          <div className="clearfix">
-            <label className="float-left form-check-label"><input type="checkbox" /> Remember me</label>
-            <a href="#" className="float-right">Forgot Password?</a>
-          </div>        
-        </form>
-        <p className="text-center"><a href="#">Sign in Account</a></p>
+          <FormField
+            // value={values.ingredient1}
+            type="text"
+            className="form-control"
+            placeholder="Username"
+            required="required"
+            id="username"
+            required
+          />
+           <FormField
+            // value={values.ingredient1}
+            type="email"
+            className="form-control"
+            placeholder="Email"
+            required="required"
+            id="email"
+            required
+          />
+           <FormField
+            // value={values.ingredient1}
+            type="password"
+            className="form-control"
+            placeholder="Password"
+            required="required"
+            id="password"
+            required
+          />
+          <FormField
+            // value={values.ingredient1}
+            type="password"
+            className="form-control"
+            placeholder="Confirm Password"
+            required="required"
+            id="password"
+            required
+          />
+          <SubmitButton title="Sign Up" />
+        </Form>
       </div>
-        </div>
     )
 }
 
