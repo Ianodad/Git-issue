@@ -1,4 +1,4 @@
-import {Router, Route, Switch, Redirect } from "react-router-dom";
+import {Route, Switch, Redirect } from "react-router-dom";
 import React, { Component} from "react";
 
 import { BrowserRouter } from "react-router-dom";
@@ -34,8 +34,8 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Main} />
             <Route path="/main" component={Main} />
-			<Route path="/inspection" exact component={Inspection} />
-			<Route path="/issues" exact component={Issues} />
+			      <Route path="/inspection" exact component={Inspection} />
+			       <Route path="/issues" exact component={Issues} />
             <Route path="/auth" exact component={Auth} />
             <Route path="/notFound" component={NotFound} />
             <Redirect to="/notFound" />

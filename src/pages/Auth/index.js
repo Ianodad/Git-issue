@@ -1,13 +1,16 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import SignIn from './SignIn';
+import SignUp from './SignUp';
 
-export class index extends Component {
+class Index extends Component {
     render() {
         return (
             <div>
-                <h1>Hello</h1>
+                {/* <SignIn/> */}
+                <SignUp/>
             </div>
         )
     }
 }
 
-export default index
+export default Index
