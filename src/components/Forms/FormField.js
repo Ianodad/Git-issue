@@ -6,7 +6,7 @@ import {useFormikContext} from 'formik';
 import ErrorMessage from './ErrorMessage';
 
 function FormField({id, ...otherProps}) {
-  const {setFieldTouched, handleChange, errors, touched, shadow} = useFormikContext();
+  const {setFieldTouched, handleChange, errors, touched,} = useFormikContext();
 
   return (
     <>

@@ -1,15 +1,16 @@
 import React, {} from 'react'
 import {useFormikContext} from 'formik';
 
-const SubmitButton = ({title, style}) => {
+const SubmitButton = ({className, title, style, icon}) => {
 
 
-
+  const Class = className ? className : "form-group"
   const {handleSubmit} = useFormikContext();
   return (
-    <div className="form-group">
+    <div className={Class}>
       <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-block" style={{...style}}>
-                  {title}
+                 {title && title}
+                 {icon&& icon}
        </button>
     {/* <Button
       style={styles.button}

@@ -27,19 +27,20 @@ class Layout extends Component {
     render() {
         const {children} = this.props
         const {WindowSize}= this.state
-        const height = WindowSize.height-55
+        const height = WindowSize.height-65
         return (
+            <>
             <div className="container-fluid" id="layout">
-                <div className="col-md-12 row" id="top-section" style={{height:"55px"}}>
-                    <div className="col-md-2 row" id="layout-logo">
-                        <div className="col">
+                <div className="col-md-12 row no-wrap" id="top-section" style={{height:"66px"}}>
+                    <div className="row" id="layout-logo">
+                        <div className=" col">
                             <h1>LOGO</h1>
                         </div>
                         {/* <div className="col">
                             <Navbar/>
                         </div>     */}
                     </div>
-                    <div className="col-md-10" id="layout-menu">
+                    <div className="col-6 col-sm-2 col-md-10" id="layout-menu">
                         <Navbar/>
                     </div>
                 </div>
@@ -52,6 +53,7 @@ class Layout extends Component {
                     </div>
                 </div>
             </div>
+           </>
         )
     }
 }

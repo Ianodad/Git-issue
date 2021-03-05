@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 import {  BiLinkAlt } from "react-icons/bi";
+var dayjs = require('dayjs')
+
 
 const Index=({style, data, repo}) => {
   // console.log(data)
@@ -30,10 +32,10 @@ const Index=({style, data, repo}) => {
         <tbody>
           {data && data.map((item, key)=>{
             if (repo) return (
-              <tr>
+            <tr key={key}>
             <td scope="row">{item.name}</td>
             <td>{item.has_issues}</td>
-            <td>{item.created_at}</td>
+            <td>{dayjs(item.created_at).format('DD/MM/YYYY')}</td>
             <td>{item.open_issues_count}</td>
             <td><a href={item.html_url} target="_blank" className="nav-item nav-link"><BiLinkAlt/></a></td>
             <td><Link to={`/issues/${item.owner.login}/${item.name}`} type="button" class="btn btn-primary">More</Link></td>
@@ -41,7 +43,7 @@ const Index=({style, data, repo}) => {
           </tr>
             )
             return (
-          <tr>
+          <tr key={key}>
             <td scope="row">{item.number}</td>
             <td>{item.title}</td>
             <td>{item.state}</td>

@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
+
 import Layout from '../../Layouts/Layout';
 import Card from '../../components/Card/Card.js';
 import Table from '../../components/Table';
 import { gitHubApiActions } from "../../_actions";
 
 import { connect } from "react-redux";
+var _ = require('lodash');
+
 
 // import githubApi from "../../api/githubApi";
+// github api action imported from actions 
 const { getAllOwnerRepoIssues, getAllOwnerRepos }= gitHubApiActions;
 
 class Main extends Component {
@@ -21,7 +25,17 @@ class Main extends Component {
     render() {
       const { allOwnerRepos} = this.props
       const repoCount = allOwnerRepos.length
-      console.log(allOwnerRepos[0].owner.login)
+      const issue_count = _.sumBy(allOwnerRepos, repo => {
+        return repo.open_issues;
+});
+      // console.log(allOwnerRepos[0].owner.login)
+      if (!allOwnerRepos){
+        return (
+          <Layout>
+              <div>Nothing to see here</div>
+          </Layout>
+        )
+      }
         return (
             <div>
                 <Layout>
@@ -31,7 +45,7 @@ class Main extends Component {
                      </div> 
                     <div className="repo-info row mt-4 pt-4">
                       <Card title={"Repos"} count={repoCount} style={{width:"30vh"}}/>   
-                      <Card title={"Issue Count"} count={repoCount} style={{width:"30vh"}}/>   
+                      <Card title={"Issue Count"} count={issue_count} style={{width:"30vh"}}/>   
                     </div>
                     </div>
                     <div className="issue mt-4">

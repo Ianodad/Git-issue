@@ -5,6 +5,7 @@ export const SIGN_UP = "SIGN_UP"
 export const SIGN_IN = "SIGN_IN"
 
  // api actions
+export const GET_SEARCH_USER = "GET_SEARCH_USER"
 export const GET_ALL_OWNER_REPOS = "GET_ALL_USER_REPOS"
 export const GET_ALL_OWNER_ISSUES = "GET_ALL_OWNER_ISSUES"
 export const GET_ALL_OWNER_REPO_ISSUES = "GET_ALL_OWNER_REPO_ISSUES"

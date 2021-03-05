@@ -1,5 +1,4 @@
 import React from 'react';
-import { Formik } from "formik";
 import * as Yup from 'yup';
 
 import SocialButton from "../../components/SocialButton";
@@ -37,7 +36,7 @@ function SignIn() {
             placeholder="Username"
             required="required"
             id="username"
-            required
+
           />
           <FormField
             // value={values.ingredient1}
@@ -46,14 +45,13 @@ function SignIn() {
             placeholder="Password"
             required="required"
             id="password"
-            required
           />
           <SubmitButton title="Sign In" />
         </Form>
 
-        <p className="text-center">
-          <a href="#">Create an Account</a>
-        </p>
+        <div className="text-center">
+          <p>Create an Account</p>
+        </div>
       </div>
     );
 }

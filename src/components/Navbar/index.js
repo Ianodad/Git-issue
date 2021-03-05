@@ -1,32 +1,75 @@
 import React from "react";
 import { FaSearch  } from 'react-icons/fa';
+import { connect } from "react-redux";
+
 import { RiLogoutBoxRLine } from "react-icons/ri";
+import {Form, FormField, SubmitButton} from '../../components/Forms';
+
+import { useHistory } from 'react-router-dom';
 
 
-function index() {
+
+
+import { gitHubApiActions } from "../../_actions";
+const { getSearchUser }= gitHubApiActions;
+
+function Index({getSearchUser}) {
+   const history = useHistory();
+
+
+
+  const handleSearch=({query})=>{
+    getSearchUser(query);
+    // history.push("/search")
+    history.push(`/search/${query}`);
+    // <Link to="/search" />
+    // window.location = `/search/${query}`
+
+    // console.log(query)
+  }
   return (
     <>
-      <nav className="navbar navbar-expand-md navbar-light bg-light row">
+      <nav className="navbar navbar-expand-md navbar-light bg-light  mt-1" style={{height:"55px", minWidth:"400px"}} >
         {/* <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span className="navbar-toggler-icon" />
         </button> */}
-        <div className="collapse navbar-collapse mb-3 col" id="navbarCollapse">
-          <form className="form-inline">
-            <div className="input-group">                    
-              <input type="text" className="form-control" placeholder="Search" />
-              <div className="input-group-append">
-                <button type="button" className="btn btn-secondary"><FaSearch/></button>
-              </div>
-            </div>
-          </form>
+        <div className="collapse navbar-collapse col" id="navbarCollapse">
+          <Form
+            className="form-inline"
+            initialValues={{ query: "" }}
+            onSubmit={(values) => handleSearch(values)}
+          >
+            <FormField
+              type="text"
+              className="form-control"
+              placeholder="Search"
+              required="required"
+              id="query"
+            />
+            <SubmitButton
+              className="input-group-append ml-1"
+              icon={<FaSearch />}
+            />
+          </Form>
         </div>
         <div className="navbar-nav">
-            <p className="nav-item nav-link">Username</p>
-            <a href="#" className="nav-item nav-link"><RiLogoutBoxRLine/></a>
+          <p className="nav-item col">Username</p>
+          <a href="#" className="nav-item col">
+            <RiLogoutBoxRLine />
+          </a>
         </div>
       </nav>
     </>
   );
 }
 
-export default index;
+const mapStateToProps = (state) => {
+  // console.log(state.gitHubApiData)
+  return {
+    searchResults: state.gitHubApiData.userSearchResults
+  };
+};
+
+export default connect(mapStateToProps, {
+  getSearchUser
+})(Index)

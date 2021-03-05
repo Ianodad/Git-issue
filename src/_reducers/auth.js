@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
         ...state,
         auth: action.payload,
       };
-    case SIGN_IN:
+    case SIGN_UP:
       return {
         ...state,
         auth: action.payload,

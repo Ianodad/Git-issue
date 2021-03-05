@@ -1,4 +1,3 @@
-import { Tab } from 'bootstrap';
 import React, { Component } from 'react'
 import Layout from '../../Layouts/Layout';
 import Table from '../../components/Table/index';
@@ -23,6 +22,10 @@ class Issues extends Component {
             <div>
                 <Layout>
                     <div className="container-fluid mt-4">
+                      <div className="username">
+                       <h4>User Name: {this.props.match.params.username}</h4>
+                       <h4>Repo: {this.props.match.params.repo}</h4>
+                     </div> 
                         {repoIssues && <Table data={repoIssues} style={{width:'80%'}}/>}
                     </div>
                 </Layout>
