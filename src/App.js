@@ -34,8 +34,10 @@ class App extends Component {
           <Switch>
             <Route path="/" exact component={Main} />
             <Route path="/main" component={Main} />
-			      <Route path="/inspection" exact component={Inspection} />
-			       <Route path="/issues" exact component={Issues} />
+			      <Route path="/inspection/:id" exact component={Inspection} />
+            <Route path="/inspection" exact component={Inspection} />
+			      <Route path="/issues" exact component={Issues} />
+            <Route path="/issues/:username/:repo" exact component={Issues} />
             <Route path="/auth" exact component={Auth} />
             <Route path="/notFound" component={NotFound} />
             <Redirect to="/notFound" />

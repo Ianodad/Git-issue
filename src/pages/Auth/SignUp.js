@@ -32,7 +32,6 @@ function SignUp() {
             <SocialButton />
           </div>
           <FormField
-            // value={values.ingredient1}
             type="text"
             className="form-control"
             placeholder="Username"
@@ -41,7 +40,6 @@ function SignUp() {
             required
           />
            <FormField
-            // value={values.ingredient1}
             type="email"
             className="form-control"
             placeholder="Email"
@@ -50,7 +48,6 @@ function SignUp() {
             required
           />
            <FormField
-            // value={values.ingredient1}
             type="password"
             className="form-control"
             placeholder="Password"
@@ -59,7 +56,6 @@ function SignUp() {
             required
           />
           <FormField
-            // value={values.ingredient1}
             type="password"
             className="form-control"
             placeholder="Confirm Password"

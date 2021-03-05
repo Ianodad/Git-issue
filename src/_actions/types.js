@@ -1,2 +1,13 @@
+
+
+// auth actions 
 export const SIGN_UP = "SIGN_UP"
 export const SIGN_IN = "SIGN_IN"
+
+ // api actions
+export const GET_ALL_OWNER_REPOS = "GET_ALL_USER_REPOS"
+export const GET_ALL_OWNER_ISSUES = "GET_ALL_OWNER_ISSUES"
+export const GET_ALL_OWNER_REPO_ISSUES = "GET_ALL_OWNER_REPO_ISSUES"
+export const GET_ONE_OWNER_ISSUE = "GET_ONE_OWNER_ISSUE"
+export const GET_REPO_ISSUES_COMMENTS = "GET_REPO_ISSUES_COMMENTS"
+export const GET_REPO_ISSUE_COMMENTS = "GET_REPO_ISSUE_COMMENTS"

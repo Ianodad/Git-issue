@@ -1,9 +1,30 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { Component } from "react";
 import Layout from "../../Layouts/Layout";
+import { Link } from 'react-router-dom';
+
+import { gitHubApiActions } from "../../_actions";
+
+import { connect } from "react-redux";
+
+const { getAllOwnerRepoIssues, getFromDispatch }= gitHubApiActions;
 
 class Inspection extends Component {
+   componentDidMount= async()=>{
+         this.props.getAllOwnerRepoIssues()
+         this.props.getFromDispatch(this.props.match.params.id)
+      // this.setState({data: await this.props.getAllOwnerRepoIssues() })
+    }
   render() {
+    const {issue} = this.props
+    console.log(issue)
+    if (!issue){
+      return (
+        <Layout>
+          <div className="container-fluid text-center" style={{marginTop:"25%"}}>Nothing to show please select and issue form <span><Link to={"/issues"}>Issues</Link></span></div>
+        </Layout>
+      )
+    } 
     return (
       <>
         <Layout>
@@ -11,7 +32,7 @@ class Inspection extends Component {
             <div className="card mt-4">
               <div className="card-header row">
                 <div className="inspection-title col">
-                  <h3>TITTLE</h3>
+                  <h3>{issue.title}</h3>
                 </div>
                 <div className="actions row float-right mx-3">
                   <div className="col">link</div>
@@ -23,25 +44,21 @@ class Inspection extends Component {
                 <div className="info row d-flex">
                   <div className="col">
                     <h4>Date</h4>
-                    <p>01/01/2021</p>
+                    <p>{issue.created_at}</p>
                   </div>
                   <div className="col">
                     <h4>State</h4>
-                    <p>Open</p>
+                    <p>{issue.state}</p>
                   </div>
                   <div className="col">
                     <h4>Locked</h4>
-                    <p>False</p>
+                    <p>{issue.locked}</p>
                   </div>
                 </div>
                 <div className="disc">
                   <h4>Description</h4>
                   <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Maxime mollitia,molestiae quas vel sint commodi repudiandae
-                    consequuntur voluptatum laborumnumquam blanditiis harum
-                    quisquam eius sed odit fugiat iusto fuga praesentiumoptio,
-                    eaque rerum!
+                    {issue.body}
                   </p>
                 </div>
                 <div className="repo-detail">
@@ -81,4 +98,14 @@ class Inspection extends Component {
   }
 }
 
-export default Inspection;
+const mapStateToProps = (state) => {
+  // console.log(state.gitHubApiData)
+  return {
+    issue: state.gitHubApiData.oneOwnerIssue,
+  };
+};
+
+export default connect(mapStateToProps, {
+  getAllOwnerRepoIssues,
+  getFromDispatch
+})(Inspection);

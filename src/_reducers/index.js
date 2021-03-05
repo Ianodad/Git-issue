@@ -1,6 +1,9 @@
-import {combineReducers} from 'redux'
-import authReducer from "./auth"
+import {combineReducers} from 'redux';
+import authReducer from "./auth";
+import gitHubApiReducer from "./gitHubApi"
 
 export default combineReducers({
-    login: authReducer,
+    auth: authReducer,
+    gitHubApiData:gitHubApiReducer
+
 })
