@@ -15,47 +15,90 @@ var _ = require('lodash');
 const { getAllOwnerRepoIssues, getAllOwnerRepos }= gitHubApiActions;
 
 class Main extends Component {
+  componentDidMount = async () => {
+    this.props.getAllOwnerRepoIssues();
+    this.props.getAllOwnerRepos(JSON.parse(localStorage.getItem("selectUser")));
+    // this.setState({data: await this.props.getAllOwnerRepoIssues() })
+  };
 
-    componentDidMount= async()=>{
-         this.props.getAllOwnerRepoIssues()
-         this.props.getAllOwnerRepos( JSON.parse(localStorage.getItem("selectUser")))
-      // this.setState({data: await this.props.getAllOwnerRepoIssues() })
+  sumBy = (data) => {
+    return _.sumBy(data, (repo) => {
+      return repo.open_issues;
+    });
+  };
+
+  countBy = (data)=>{
+    return  _.pick(_.countBy(data, 'has_issues'),  [true])
+
+  }
+  render() {
+    const { allOwnerRepos } = this.props;
+    const repoCount = allOwnerRepos.length;
+    const issue_count = this.sumBy(allOwnerRepos);
+    const countSum = this.countBy(allOwnerRepos)
+    const issuePercent = (100 * countSum.true)/allOwnerRepos.length
+    console.log(issuePercent)
+    // console.log(allOwnerRepos)
+    // console.log(allOwnerRepos[0].owner.login)
+    if (!allOwnerRepos) {
+      return (
+        <Layout>
+          <div>Nothing to see here</div>
+        </Layout>
+      );
     }
- 
-    render() {
-      const { allOwnerRepos} = this.props
-      const repoCount = allOwnerRepos.length
-      const issue_count = _.sumBy(allOwnerRepos, repo => {
-        return repo.open_issues;
-});
-      // console.log(allOwnerRepos[0].owner.login)
-      if (!allOwnerRepos){
-        return (
-          <Layout>
-              <div>Nothing to see here</div>
-          </Layout>
-        )
-      }
-        return (
-            <div>
-                <Layout>
-                    <div className="container-fluid mt-4">
-                     <div className="username">
-                       <a href={allOwnerRepos[0].owner} className="">link</a>
-                       <h4 className="text-decoration-underline">{allOwnerRepos[0].owner.login}</h4>
-                     </div> 
-                    <div className="repo-info row mt-4 pt-4">
-                      <Card title={"Repos"} count={repoCount} style={{width:"30vh"}}/>   
-                      <Card title={"Issue Count"} count={issue_count} style={{width:"30vh"}}/>   
-                    </div>
-                    </div>
-                    <div className="issue mt-4">
-                         {allOwnerRepos && <Table repo data={allOwnerRepos} style={{width:'80%'}}/>}
-                    </div>
-                </Layout>
+    return (
+      <div>
+        <Layout>
+          <div className="container-fluid mt-4">
+            <div className="username">
+              <p className="mb-0 pb-0" style={{ color: "#C3C3E5" }}>
+                Selected user
+              </p>
+              <a href={allOwnerRepos[0].owner} className="mt-0 pt-0">
+                <h4
+                  className="mt-0"
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: "40px",
+                    color: "#443266",
+                  }}
+                >
+                  {allOwnerRepos[0].owner.login}
+                </h4>
+              </a>
             </div>
-        )
-    }
+            <div className="repo-info row mt-4 pt-4 d-flex wrap">
+              <Card
+                title={"Repos"}
+                count={repoCount}
+                style={{
+                  width: "18em",
+                  backgroundColor: "#C3C3E5",
+                  margin: "0px 10px",
+                }}
+              />
+              <Card
+                title={"Open Issue Count"}
+                count={issue_count}
+                style={{ width: "18em", backgroundColor: "#C3C3E5" }}
+              />
+              <Card
+                title={"Repository with Issues"}
+                count={issuePercent+"%"}
+                style={{ width: "18em", backgroundColor: "#C3C3E5" }}
+              />
+            </div>
+          </div>
+          <div className="issue mt-4">
+            {allOwnerRepos && (
+              <Table repo data={allOwnerRepos} style={{ width: "80%" }} />
+            )}
+          </div>
+        </Layout>
+      </div>
+    );
+  }
 }
 
 const mapStateToProps = (state) => {

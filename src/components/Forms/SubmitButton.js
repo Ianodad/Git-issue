@@ -8,7 +8,7 @@ const SubmitButton = ({className, title, style, icon}) => {
   const {handleSubmit} = useFormikContext();
   return (
     <div className={Class}>
-      <button type="submit" onClick={handleSubmit} className="btn btn-primary btn-block" style={{...style}}>
+      <button type="submit" onClick={handleSubmit} className="btn btn-block" style={{...style}}>
                  {title && title}
                  {icon&& icon}
        </button>

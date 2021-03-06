@@ -1,21 +1,23 @@
 import React from 'react'
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import {  BiLinkAlt } from "react-icons/bi";
 var dayjs = require('dayjs')
 
 
 const Index=({style, data, repo}) => {
+   
+  
   // console.log(data)
-    return (
+  return (
       <div className="container-fluid">
         <table className="table">
-        <thead className="thead-light">
+        <thead className="" style={{backgroundColor: '#F1F0FF'}}>
           { repo ? (<tr>
             <th scope="col">Name</th>
             <th scope="col">Has Issues</th>
             <th scope="col">Date</th>
-            <th scope="col">Issues Count</th>
+            <th scope="col">Open Issue Count</th>
             <th scope="col">Link</th>
             <th scope="col">Detail</th>
           </tr>): (
@@ -38,8 +40,7 @@ const Index=({style, data, repo}) => {
             <td>{dayjs(item.created_at).format('DD/MM/YYYY')}</td>
             <td>{item.open_issues_count}</td>
             <td><a href={item.html_url} target="_blank" className="nav-item nav-link"><BiLinkAlt/></a></td>
-            <td><Link to={`/issues/${item.owner.login}/${item.name}`} type="button" class="btn btn-primary">More</Link></td>
-
+            <td><NavLink to={`/issues/${item.owner.login}/${item.name}`} type="button" class="btn" style={{backgroundColor:"#443266", color:"white"}}>More</NavLink></td>
           </tr>
             )
             return (
@@ -49,7 +50,7 @@ const Index=({style, data, repo}) => {
             <td>{item.state}</td>
             <td>{item.user.login}</td>
             <td><a href={item.html_url} target="_blank" className="nav-item nav-link"><BiLinkAlt/></a></td>
-            <td><Link to={`/inspection/${item.number}`} type="button" class="btn btn-primary">More</Link></td>
+            <td><NavLink to={`/inspection/${item.number}`} type="button" class="btn" style={{backgroundColor:"#443266", color:"white"}} >More</NavLink></td>
 
           </tr>
             )

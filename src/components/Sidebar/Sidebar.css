@@ -1,3 +1,7 @@
 /* #sidebar{
     background-color: #00cccc !important;
 } */
+
+.list-group, .list-group-item {
+    font-weight: bold;
+}

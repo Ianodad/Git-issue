@@ -11,7 +11,7 @@ const endPointSearchUser ="/search/users"
 // get all repos belong to a user
 const getSearchUser = (owner)=>client.get(`${endPointSearchUser}`, {q:owner})
 const getAllOwnerRepos = (owner="octocat")=>client.get(`${endPointAllUserRepos}/${owner}/repos`)
-const getAllOwnerRepoIssues =(owner="octocat", repo="hello-world")=>client.get(`${endPointGetIssues}/${owner}/${repo}/issues`)
+const getAllOwnerRepoIssues =(owner, repo)=>client.get(`${endPointGetIssues}/${owner}/${repo}/issues`)
 const getOneOwnerIssue = (owner="octocat", repo="hello-world", issue_number='42')=>client.get(`${endPointGetIssues}/${owner}/${repo}/issues/${issue_number}`)
 
 const getRepoIssuesComments =(owner="octocat", repo="hello-world")=>client.get(`${endPointGetIssues}/${owner}/${repo}/issues/comments`)

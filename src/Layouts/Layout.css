@@ -1,3 +1,5 @@
+ @import url('https://fonts.googleapis.com/css2?family=Germania+One&display=swap');
+ 
  #default {
    color: #443266;
    color : #C3C3E5;
@@ -29,8 +31,14 @@ p {
 #layout-logo{
   background-color:#F1F0FF;
 }
+#logo-main{
+  letter-spacing: 3px;
+  font-family: 'Germania One', cursive;
+  color:#443266;
+  font-weight: 900;
+}
 #layout-menu {
-  background-color: #C3C3E5;
+  background-color: white;
   height: 100%;
 }
 #bottom-section{

@@ -16,13 +16,13 @@ function Index() {
     }
     return (
       <div className="list-group borderless mt-4 border-0 mx-0" id="sidebar" >
-        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent" style={{backgroundColor: main ? 'blue':'', color:"black" }} to="/">        
+        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent" style={{color: main ? 'grey':'#8C489F'}} to="/">        
           <i className="fa fa-home" /> Main
         </NavLink>
-        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent " style={{backgroundColor: issues ? 'blue':'',color:"black" }} to="/issues">
+        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent " style={{color: issues ? 'grey':'#8C489F'}} to="/issues">
           <i className="fa fa-camera" /> Issues
         </NavLink>
-        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent" style={{backgroundColor: inspection ? 'blue':'', color:"black" }} to="/inspection">
+        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent" style={{color: inspection ? 'grey':'#8C489F' }} to="/inspection">
           <i className="fa fa-music" /> Inspection
         </NavLink>
       </div>

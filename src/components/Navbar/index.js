@@ -45,6 +45,7 @@ function Index({getSearchUser}) {
               id="query"
             />
             <SubmitButton
+              style={{backgroundColor:"#443266", color:"white"}}
               className="input-group-append ml-1"
               icon={<FaSearch />}
             />

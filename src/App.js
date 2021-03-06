@@ -39,7 +39,7 @@ class App extends Component {
 			      <Route path="/inspection/:id" exact component={Inspection} />
             <Route path="/inspection" exact component={Inspection} />
 			      <Route path="/issues" exact component={Issues} />
-            <Route path="/issues/:username/:repo" exact component={Issues} />
+            <Route path="/issues/:owner/:repo" exact component={Issues} />
             <Route path ="/search/:q" exact component={Search} />
             <Route path="/auth" exact component={Auth} />
             <Route path="/notFound" component={NotFound} />
