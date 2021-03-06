@@ -7,6 +7,7 @@ import {Form, FormField, SubmitButton} from '../../components/Forms';
 
 import { useHistory } from 'react-router-dom';
 
+import "./Navbar.css"
 
 
 
@@ -20,16 +21,13 @@ function Index({getSearchUser}) {
 
   const handleSearch=({query})=>{
     getSearchUser(query);
-    // history.push("/search")
-    history.push(`/search/${query}`);
-    // <Link to="/search" />
+    // history.push(`/search/${query}`);
     // window.location = `/search/${query}`
-
-    // console.log(query)
   }
+
   return (
     <>
-      <nav className="navbar navbar-expand-md navbar-light bg-light  mt-1" style={{height:"55px", minWidth:"400px"}} >
+      <nav className="navbar navbar-expand-md navbar-light mt-1" style={{height:"55px"}} >
         {/* <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span className="navbar-toggler-icon" />
         </button> */}

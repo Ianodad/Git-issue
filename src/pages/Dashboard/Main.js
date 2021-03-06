@@ -18,7 +18,7 @@ class Main extends Component {
 
     componentDidMount= async()=>{
          this.props.getAllOwnerRepoIssues()
-         this.props.getAllOwnerRepos()
+         this.props.getAllOwnerRepos( JSON.parse(localStorage.getItem("selectUser")))
       // this.setState({data: await this.props.getAllOwnerRepoIssues() })
     }
  
@@ -41,7 +41,8 @@ class Main extends Component {
                 <Layout>
                     <div className="container-fluid mt-4">
                      <div className="username">
-                       <h4>User Name: {allOwnerRepos[0].owner.login}</h4>
+                       <a href={allOwnerRepos[0].owner} className="">link</a>
+                       <h4 className="text-decoration-underline">{allOwnerRepos[0].owner.login}</h4>
                      </div> 
                     <div className="repo-info row mt-4 pt-4">
                       <Card title={"Repos"} count={repoCount} style={{width:"30vh"}}/>   

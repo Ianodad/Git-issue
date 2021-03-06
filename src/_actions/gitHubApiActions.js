@@ -1,7 +1,8 @@
 
 import gitHubApi from "../api/gitHubApi";
 import {GET_SEARCH_USER, GET_ALL_OWNER_REPOS,  GET_ALL_OWNER_ISSUES, GET_ALL_OWNER_REPO_ISSUES, GET_ONE_OWNER_ISSUE, GET_REPO_ISSUES_COMMENTS ,GET_REPO_ISSUE_COMMENTS} from "./types";
-import  { Redirect } from 'react-router-dom'
+
+
 
 // NOTE settings
 // default username == octocat
@@ -18,9 +19,9 @@ const getSearchUser = (query) => async (dispatch) => {
        payload: data.items,
      });
 
-  //  if (data) {
-  //   window.location=`/search/${query}`
-  // }
+   if (data) {
+    window.location=`/search/${query}`
+  }
   } catch (error) {
     console.log(error) 
   }
@@ -28,8 +29,8 @@ const getSearchUser = (query) => async (dispatch) => {
 
 }
 // this function is responsible for get all user repos.. base on github api
-const getAllOwnerRepos =() => async (dispatch) => {
-  const {data} = await gitHubApi.getAllOwnerRepos()
+const getAllOwnerRepos =(owner) => async (dispatch) => {
+  const {data} = await gitHubApi.getAllOwnerRepos(owner)
   // console.log(data)
   dispatch({
       type: GET_ALL_OWNER_REPOS ,

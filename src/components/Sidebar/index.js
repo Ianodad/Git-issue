@@ -15,21 +15,15 @@ function Index() {
       inspection = true;
     }
     return (
-      <div className="list-group borderless mt-2 border-0 m-0">
-        <NavLink to="/">
-        <div className="list-group-item list-group-item-action border-0" style={{backgroundColor: main ? 'blue':'' }}>
+      <div className="list-group borderless mt-4 border-0 mx-0" id="sidebar" >
+        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent" style={{backgroundColor: main ? 'blue':'', color:"black" }} to="/">        
           <i className="fa fa-home" /> Main
-        </div>
         </NavLink>
-        <NavLink to="/issues">
-        <div  className="list-group-item list-group-item-action border-0" style={{backgroundColor: issues ? 'blue':'' }}>
+        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent " style={{backgroundColor: issues ? 'blue':'',color:"black" }} to="/issues">
           <i className="fa fa-camera" /> Issues
-        </div>
         </NavLink>
-        <NavLink to="/inspection">
-        <div className="list-group-item list-group-item-action border-0" style={{backgroundColor: inspection ? 'blue':'' }}>
+        <NavLink className="list-group-item list-group-item-action border-0 bg-transparent" style={{backgroundColor: inspection ? 'blue':'', color:"black" }} to="/inspection">
           <i className="fa fa-music" /> Inspection
-        </div>
         </NavLink>
       </div>
     );

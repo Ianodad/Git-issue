@@ -31,21 +31,21 @@ class Layout extends Component {
         return (
             <>
             <div className="container-fluid" id="layout">
-                <div className="col-md-12 row no-wrap" id="top-section" style={{height:"66px"}}>
-                    <div className="row" id="layout-logo">
-                        <div className=" col">
-                            <h1>LOGO</h1>
+                <div className="col-md-12 row py-0" id="top-section" style={{height:"60px"}}>
+                    <div className="col-md-2 col-12 row mx-auto py-2" id="layout-logo">
+                        <div className="col-2 my-auto">
+                            <h1 className="" style={{fontSize:"3vh",}}>LOGO</h1>
                         </div>
-                        {/* <div className="col">
-                            <Navbar/>
-                        </div>     */}
-                    </div>
-                    <div className="col-6 col-sm-2 col-md-10" id="layout-menu">
+                        <div className="text-right col-9 my-auto">
+                            <p>Username</p>
+                        </div>
+                  </div>
+                    <div className="col-md-10 col-10" id="layout-menu">
                         <Navbar/>
                     </div>
                 </div>
                  <div className="col-md-12 row" id="bottom-section">
-                     <div className="col-md-2" id="layout-sidemenu" style={{height:height}}>
+                     <div className="col-md-2 px-0" id="layout-sidemenu" style={{height:height}}>
                        <SideMenu/>
                     </div>
                     <div className="col-md-10" id="layout-dashboard">

@@ -1,3 +1,12 @@
+ #default {
+   color: #443266;
+   color : #C3C3E5;
+   color :#F1F0FF;
+   color : #8C489F;
+   
+ }  
+
+
 body,
 html {
   height: 100%;
@@ -18,10 +27,10 @@ p {
   height: 2.5em;
 }
 #layout-logo{
-  /* background-color: red; */
+  background-color:#F1F0FF;
 }
 #layout-menu {
-  /* background-color:yellow; */
+  background-color: #C3C3E5;
   height: 100%;
 }
 #bottom-section{
@@ -29,7 +38,7 @@ p {
 }
 
 #layout-sidemenu{
-  /* background-color:green; */
+  background-color:#F1F0FF;
 
 }
 
@@ -44,5 +53,8 @@ p {
 
 #layout-sidemenu{
   display: none;
+}
+#top-section #layout-menu:{
+    display: none;
 } 
 }

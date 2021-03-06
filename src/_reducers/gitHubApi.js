@@ -16,7 +16,7 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_SEARCH_USER:
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
         ...state,
         userSearchResult: action.payload,
