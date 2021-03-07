@@ -27,7 +27,7 @@ function Index({getSearchUser}) {
 
   return (
     <>
-      <nav className="navbar navbar-expand-md navbar-light mt-1" style={{height:"55px"}} >
+      <nav className="navbar navbar-expand-md  mt-1" style={{height:"55px"}} >
         {/* <button type="button" className="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
           <span className="navbar-toggler-icon" />
         </button> */}

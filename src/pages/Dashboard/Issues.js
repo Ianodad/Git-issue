@@ -22,10 +22,10 @@ class Issues extends Component {
     const repo = this.props.match.params.repo
     // ? this.props.match.params.repo
     // : "hello-world";
-    console.log(this.props.match.params.username, this.props.match.params.repo);
+    // console.log(this.props.match.params.username, this.props.match.params.repo);
     //  owner="octocat", repo="hello-world"
-    console.log(owner, repo);
-    if (repo){
+    // console.log(owner, repo);
+    if (repo && owner){
       await this.props.getAllOwnerRepoIssues(owner, repo);
       this.setState({repo, owner});
     }
@@ -35,7 +35,7 @@ class Issues extends Component {
 
   render() {
     const { repoIssues } = this.props;
-    const { repo } = this.state;
+    const { repo, owner} = this.state;
     console.log(repoIssues);
     // if (repoIssues.length <= 0) {
     //   return (
@@ -80,7 +80,7 @@ class Issues extends Component {
                 </div>
                 <div className="repository-details mt-4">
                   {repoIssues && (
-                    <Table data={repoIssues} style={{ width: "80%" }} />
+                    <Table data={repoIssues} owner={owner} repo={repo} style={{ width: "80%" }} />
                   )}
                 </div>
               </>

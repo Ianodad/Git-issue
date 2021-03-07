@@ -5,7 +5,7 @@ import {  BiLinkAlt } from "react-icons/bi";
 var dayjs = require('dayjs')
 
 
-const Index=({style, data, repo}) => {
+const Index=({style, data, main, repo, owner}) => {
    
   
   // console.log(data)
@@ -13,7 +13,7 @@ const Index=({style, data, repo}) => {
       <div className="container-fluid">
         <table className="table">
         <thead className="" style={{backgroundColor: '#F1F0FF'}}>
-          { repo ? (<tr>
+          { main ? (<tr>
             <th scope="col">Name</th>
             <th scope="col">Has Issues</th>
             <th scope="col">Date</th>
@@ -33,7 +33,7 @@ const Index=({style, data, repo}) => {
         </thead>
         <tbody>
           {data && data.map((item, key)=>{
-            if (repo) return (
+            if (main) return (
             <tr key={key}>
             <td scope="row">{item.name}</td>
             <td>{item.has_issues}</td>
@@ -50,7 +50,7 @@ const Index=({style, data, repo}) => {
             <td>{item.state}</td>
             <td>{item.user.login}</td>
             <td><a href={item.html_url} target="_blank" className="nav-item nav-link"><BiLinkAlt/></a></td>
-            <td><NavLink to={`/inspection/${item.number}`} type="button" class="btn" style={{backgroundColor:"#443266", color:"white"}} >More</NavLink></td>
+            <td><NavLink to={`/inspection/${owner}/${repo}/${item.number}`} type="button" class="btn" style={{backgroundColor:"#443266", color:"white"}} >More</NavLink></td>
 
           </tr>
             )

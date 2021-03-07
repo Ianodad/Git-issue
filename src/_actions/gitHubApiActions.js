@@ -54,7 +54,23 @@ const  getAllOwnerRepoIssues = (owner, repo) => async (dispatch) => {
     console.log(error)   
   }
 };
+// get one repo comments repo 
+const getRepoIssueComments = (owner, repo, id) => async (dispatch) => {
 
+  try {
+    if (owner && repo && id) {
+      const {data}= await gitHubApi.getRepoIssueComments(owner, repo, id)
+      console.log(data) 
+      dispatch({
+        type: GET_REPO_ISSUE_COMMENTS,
+        payload: data,
+      });
+
+    } 
+  } catch (error) {
+    console.log(error)   
+  }
+}
 
 // get specific issue straight from redux state..
 const getFromDispatch = (number) => async (dispatch, getState) => {
@@ -77,8 +93,10 @@ const getFromDispatch = (number) => async (dispatch, getState) => {
   
 }
 
+// export all action functions as an object
 export const gitHubApiActions = {
     getAllOwnerRepoIssues,
+    getRepoIssueComments,
     getAllOwnerRepos,
     getFromDispatch,
     getSearchUser

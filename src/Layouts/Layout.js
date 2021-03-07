@@ -40,7 +40,7 @@ class Layout extends Component {
                             <p>Username</p>
                         </div>
                   </div>
-                    <div className="col-md-10 col-10" id="layout-menu">
+                    <div className="col-md-10 layout" id="layout-menu">
                         <Navbar/>
                     </div>
                 </div>

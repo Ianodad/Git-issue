@@ -37,7 +37,7 @@ class Main extends Component {
     const issue_count = this.sumBy(allOwnerRepos);
     const countSum = this.countBy(allOwnerRepos)
     const issuePercent = (100 * countSum.true)/allOwnerRepos.length
-    console.log(issuePercent)
+    console.log(allOwnerRepos)
     // console.log(allOwnerRepos)
     // console.log(allOwnerRepos[0].owner.login)
     if (!allOwnerRepos) {
@@ -92,7 +92,7 @@ class Main extends Component {
           </div>
           <div className="issue mt-4">
             {allOwnerRepos && (
-              <Table repo data={allOwnerRepos} style={{ width: "80%" }} />
+              <Table main={true} data={allOwnerRepos} style={{ width: "80%" }} />
             )}
           </div>
         </Layout>

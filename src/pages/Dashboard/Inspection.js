@@ -7,14 +7,17 @@ import { gitHubApiActions } from "../../_actions";
 
 import { connect } from "react-redux";
 
-const { getAllOwnerRepoIssues, getFromDispatch }= gitHubApiActions;
+const { getAllOwnerRepoIssues, getFromDispatch, getRepoIssueComments }= gitHubApiActions;
 
 class Inspection extends Component {
    componentDidMount= async()=>{
         
-
+        const owner = this.props.match.params.owner
+        const repo = this.props.match.params.repo
+        const id = this.props.match.params.id
         //  this.props.getAllOwnerRepoIssues()
-         this.props.getFromDispatch(this.props.match.params.id)
+         this.props.getFromDispatch(id)
+         this.props.getRepoIssueComments(owner, repo, id)
       // this.setState({data: await this.props.getAllOwnerRepoIssues() })
     }
 
@@ -72,7 +75,7 @@ class Inspection extends Component {
                 </div>
               </div>
             </div>
-              <div className="title ml-4 my-2">
+              {/* <div className="title ml-4 my-2">
                 <h2 style={{fontWeight:"900", color:"#443266"}}>Comments</h2>
               </div>
             <div className="card mt-2 col-md-10" style={{ width: "75%" }}>
@@ -96,7 +99,7 @@ class Inspection extends Component {
                 </div>
               </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </Layout>
       </>
@@ -105,7 +108,7 @@ class Inspection extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state.gitHubApiData)
+  console.log(state.gitHubApiData)
   return {
     issue: state.gitHubApiData.oneOwnerIssue,
   };
@@ -113,5 +116,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   getAllOwnerRepoIssues,
+  getRepoIssueComments,
   getFromDispatch
 })(Inspection);
