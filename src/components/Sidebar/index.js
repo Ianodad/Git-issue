@@ -4,14 +4,17 @@ import { NavLink } from "react-router-dom";
 import './Sidebar.css'
 function Index() {
     const [path] = useState(window.location.pathname);
-
+    const homePath = new RegExp("/")
+    const mainPath = new RegExp("/main")
+    const issuePath = new RegExp("/issues");
+    const inspectionPath = new RegExp("/inspection")
     let main,issues,inspection;
-    if (path === "/"){
+    if (mainPath.test(path) || path=="/"){
       main = true;
       // console.log(path)
-    } else if (path=="/issues") {
+    } else if (issuePath.test(path)) {
       issues = true;
-    } else if (path=="/inspection"){
+    } else if (inspectionPath.test(path)){
       inspection = true;
     }
     return (
