@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Sidebar/> testing component Check component renders should render snapshot 1`] = `
+<div
+  className="list-group borderless mt-4 border-0 mx-0"
+  id="sidebar"
+>
+  <a
+    aria-current="page"
+    className="list-group-item list-group-item-action border-0 bg-transparent active"
+    href="/"
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "grey",
+      }
+    }
+  >
+    <i
+      className="fa fa-home"
+    />
+     Main
+  </a>
+  <a
+    aria-current={null}
+    className="list-group-item list-group-item-action border-0 bg-transparent "
+    href="/issues"
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "#8C489F",
+      }
+    }
+  >
+    <i
+      className="fa fa-camera"
+    />
+     Issues
+  </a>
+  <a
+    aria-current={null}
+    className="list-group-item list-group-item-action border-0 bg-transparent"
+    href="/inspection"
+    onClick={[Function]}
+    style={
+      Object {
+        "color": "#8C489F",
+      }
+    }
+  >
+    <i
+      className="fa fa-music"
+    />
+     Inspection
+  </a>
+</div>
+`;

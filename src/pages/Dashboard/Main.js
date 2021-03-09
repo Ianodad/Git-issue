@@ -16,8 +16,12 @@ const { getAllOwnerRepoIssues, getAllOwnerRepos }= gitHubApiActions;
 
 class Main extends Component {
   componentDidMount = async () => {
+
+    const owner = localStorage.getItem("selectUser")
+    ? localStorage.getItem("selectUser")
+    : "octocat"; 
     this.props.getAllOwnerRepoIssues();
-    this.props.getAllOwnerRepos(JSON.parse(localStorage.getItem("selectUser")));
+    this.props.getAllOwnerRepos(JSON.parse(owner));
     // this.setState({data: await this.props.getAllOwnerRepoIssues() })
   };
 
@@ -85,7 +89,7 @@ class Main extends Component {
               />
               <Card
                 title={"Repository with Issues"}
-                count={issuePercent+"%"}
+                count={issuePercent.toFixed(2)+"%"}
                 style={{ width: "18em", backgroundColor: "#C3C3E5" }}
               />
             </div>

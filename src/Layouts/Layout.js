@@ -36,9 +36,9 @@ class Layout extends Component {
                         <div className="col-2 my-auto">
                             <h1 className="mx-auto" id="logo-main" style={{fontSize:"3vh",}}>gitIssue</h1>
                         </div>
-                        <div className="text-right col-9 my-auto">
+                        {/* <div className="text-right col-9 my-auto">
                             <p>Username</p>
-                        </div>
+                        </div> */}
                   </div>
                     <div className="col-md-10 layout" id="layout-menu">
                         <Navbar/>

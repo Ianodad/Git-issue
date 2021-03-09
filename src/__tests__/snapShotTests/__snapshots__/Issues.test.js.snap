@@ -1,0 +1,258 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Issues/> testing component Check component renders should render with given state from Redux store 1`] = `
+<div>
+  <div
+    className="container-fluid"
+    id="layout"
+  >
+    <div
+      className="col-md-12 row py-0"
+      id="top-section"
+      style={
+        Object {
+          "height": "60px",
+        }
+      }
+    >
+      <div
+        className="col-md-2 col-12 row mx-auto py-2"
+        id="layout-logo"
+      >
+        <div
+          className="col-2 my-auto"
+        >
+          <h1
+            className="mx-auto"
+            id="logo-main"
+            style={
+              Object {
+                "fontSize": "3vh",
+              }
+            }
+          >
+            gitIssue
+          </h1>
+        </div>
+        <div
+          className="text-right col-9 my-auto"
+        >
+          <p>
+            Username
+          </p>
+        </div>
+      </div>
+      <div
+        className="col-md-10 layout"
+        id="layout-menu"
+      >
+        <nav
+          className="navbar navbar-expand-md  mt-1"
+          style={
+            Object {
+              "height": "55px",
+            }
+          }
+        >
+          <div
+            className="collapse navbar-collapse col"
+            id="navbarCollapse"
+          >
+            <form
+              className="form-inline"
+              role="form"
+            >
+              <div
+                className="form-group"
+              >
+                <input
+                  className="form-control"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  placeholder="Search"
+                  required="required"
+                  type="text"
+                />
+              </div>
+              <div
+                className="input-group-append ml-1"
+              >
+                <button
+                  className="btn btn-block"
+                  onClick={[Function]}
+                  style={
+                    Object {
+                      "backgroundColor": "#443266",
+                      "color": "white",
+                    }
+                  }
+                  type="submit"
+                >
+                  <svg
+                    fill="currentColor"
+                    height="1em"
+                    stroke="currentColor"
+                    strokeWidth="0"
+                    style={
+                      Object {
+                        "color": undefined,
+                      }
+                    }
+                    viewBox="0 0 512 512"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div
+            className="navbar-nav"
+          >
+            <p
+              className="nav-item col"
+            >
+              Username
+            </p>
+            <a
+              className="nav-item col"
+              href="#"
+            >
+              <svg
+                fill="currentColor"
+                height="1em"
+                stroke="currentColor"
+                strokeWidth="0"
+                style={
+                  Object {
+                    "color": undefined,
+                  }
+                }
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g>
+                  <path
+                    d="M0 0h24v24H0z"
+                    fill="none"
+                  />
+                  <path
+                    d="M5 22a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v3h-2V4H6v16h12v-2h2v3a1 1 0 0 1-1 1H5zm13-6v-3h-7v-2h7V8l5 4-5 4z"
+                  />
+                </g>
+              </svg>
+            </a>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div
+      className="col-md-12 row "
+      id="bottom-section"
+    >
+      <div
+        className="col-md-2 px-0"
+        id="layout-sidemenu"
+        style={
+          Object {
+            "height": 703,
+          }
+        }
+      >
+        <div
+          className="list-group borderless mt-4 border-0 mx-0"
+          id="sidebar"
+        >
+          <a
+            aria-current="page"
+            className="list-group-item list-group-item-action border-0 bg-transparent active"
+            href="/"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "grey",
+              }
+            }
+          >
+            <i
+              className="fa fa-home"
+            />
+             Main
+          </a>
+          <a
+            aria-current={null}
+            className="list-group-item list-group-item-action border-0 bg-transparent "
+            href="/issues"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "#8C489F",
+              }
+            }
+          >
+            <i
+              className="fa fa-camera"
+            />
+             Issues
+          </a>
+          <a
+            aria-current={null}
+            className="list-group-item list-group-item-action border-0 bg-transparent"
+            href="/inspection"
+            onClick={[Function]}
+            style={
+              Object {
+                "color": "#8C489F",
+              }
+            }
+          >
+            <i
+              className="fa fa-music"
+            />
+             Inspection
+          </a>
+        </div>
+      </div>
+      <div
+        className="col-md-10"
+        id="layout-dashboard overflow-auto"
+        style={
+          Object {
+            "height": 703,
+          }
+        }
+      >
+        <div
+          className="container-fluid mt-4"
+        >
+          <div
+            className="container-fluid text-center"
+            style={
+              Object {
+                "marginTop": "25%",
+              }
+            }
+          >
+            Nothing to show please select a repository from
+             
+            <span>
+              <a
+                href="/"
+                onClick={[Function]}
+              >
+                Main
+              </a>
+            </span>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

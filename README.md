@@ -6,10 +6,10 @@ This is a github issues dashboard. Check and track issues across any project or 
 
 ## Project Status
 ## Key Feautures
-<!-- - [x] Fetch data from backend API 
-- [x] Search Working
-- [x] Add custom cocktail to firebase  
-- [x] Retrive data from firebase  -->
+- [x] Fetch data from Github API 
+- [x] Search users from github
+- [x] View Issues list 
+- [x] Login in with github 
 
 
 

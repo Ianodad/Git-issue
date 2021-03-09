@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component Matches the snapshot 1`] = `
+<div
+  class="col-xl-3 col-sm-6 col-12"
+>
+  <div
+    class="card m-0 m-2"
+  >
+    <div
+      class="card-content"
+    >
+      <div
+        class="card-body p-1"
+      >
+        <div
+          class="media d-flex"
+        >
+          <div
+            class="align-self-center"
+          >
+            <i
+              class="icon-speech warning font-large-2 float-left"
+            />
+          </div>
+          <div
+            class="media-body text-right ml-2"
+          >
+            <h3
+              style={
+                Object {
+                  "color": "#443266",
+                  "fontWeight": "900",
+                }
+              }
+            />
+            <span
+              style={
+                Object {
+                  "color": "",
+                }
+              }
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

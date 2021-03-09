@@ -1,0 +1,26 @@
+import Layouts from "../../Layouts/Layout";
+import renderer from 'react-test-renderer';
+
+import { BrowserRouter, Switch } from 'react-router-dom';
+
+
+describe("<Layouts/> testing component", () => {
+    let component
+    
+    beforeEach(() => {
+    component = renderer.create(
+    <BrowserRouter>
+        <Switch>
+            <Layouts/>
+        </Switch>
+    </BrowserRouter>
+    );
+  });
+
+    describe("Check component renders", () => {
+         it('should render snapshot', () => {
+          expect(component.toJSON()).toMatchSnapshot();
+        });
+        
+    });
+});
