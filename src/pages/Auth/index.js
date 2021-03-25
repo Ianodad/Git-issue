@@ -23,7 +23,7 @@ class Index extends Component {
       <div className="auth row">
         <div className="col-md-4"></div>
         <div className="col-md-6">
-          <h3>GIT ISSIUES</h3>
+          <h2 className="mx-auto" style={ {'paddingTop':'3em', 'paddingLeft':'5em'} }><strong>GIT ISSIUE</strong></h2>
           <SignInWith
             signInWithGithub={() => SignInWithGithub()}
             SignInAnonymously={() => SignInAnonymous}

@@ -14,7 +14,7 @@ function SignInWith({ signInWithGithub, signInAnonymous }) {
           <span className="btn-text">Github Login</span>
         </button>
 
-        <button className="btn-green col-6 my-4" onClick={signInAnonymous}>
+        <button className="btn-green col-6 my-4" onClick={signInAnonymous} disabled>
           <span className="btn-gradient mx-3">
             <FaUser/>
           </span>
