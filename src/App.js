@@ -2,6 +2,7 @@ import {Route, Switch, Redirect } from "react-router-dom";
 import React, { Component} from "react";
 
 import { BrowserRouter } from "react-router-dom";
+import ProtectedRoute from "../src/components/Auth/ProtectedRoute";
 
 
 
@@ -33,14 +34,15 @@ class App extends Component {
         <BrowserRouter>
           {/* <Router history={history}> */}
           <Switch>
-            <Route path="/" exact component={Main} />
-            <Route path="/main" exact component={Main} />
-            <Route path="/main/:name" exact component={Main} />
-			      <Route path="/inspection/:owner/:repo/:id" exact component={Inspection} />
-            <Route path="/inspection" exact component={Inspection} />
-			      <Route path="/issues" exact component={Issues} />
-            <Route path="/issues/:owner/:repo" exact component={Issues} />
-            <Route path ="/search/:q" exact component={Search} />
+            <ProtectedRoute path="/" exact component={Main} />
+            {/* <Route path="/" exact component={Main} /> */}
+            <ProtectedRoute path="/main" exact component={Main} />
+            <ProtectedRoute path="/main/:name" exact component={Main} />
+			      <ProtectedRoute path="/inspection/:owner/:repo/:id" exact component={Inspection} />
+            <ProtectedRoute path="/inspection" exact component={Inspection} />
+			      <ProtectedRoute path="/issues" exact component={Issues} />
+            <ProtectedRoute path="/issues/:owner/:repo" exact component={Issues} />
+            <ProtectedRoute path ="/search/:q" exact component={Search} />
             <Route path="/auth" exact component={Auth} />
             <Route path="/notFound" component={NotFound} />
             <Redirect to="/notFound" />

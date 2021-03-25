@@ -1,8 +1,10 @@
 
 
 // auth actions 
-export const SIGN_UP = "SIGN_UP"
-export const SIGN_IN = "SIGN_IN"
+export const SIGN_OUT = "SIGN_OUT"
+export const SIGN_IN_WITH_GITHUB = "SIGN_IN_WITH_GITHUB"
+export const SIGN_IN_ANONYMOUSLY = "SIGN_IN_ANONYMOUSLY"
+export const GET_USER_STATE = "GET_USER_STATE"
 
  // api actions
 export const GET_SEARCH_USER = "GET_SEARCH_USER"

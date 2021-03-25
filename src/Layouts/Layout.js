@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 import SideMenu from "../components/Sidebar"
 import Navbar from "../components/Navbar"
 
+import { authActions } from "../_actions";
+
+import { connect } from "react-redux"
 
 import "./Layout.css";
 
@@ -25,7 +28,7 @@ class Layout extends Component {
         this.setState({WindowSize: { width: window.innerWidth, height: window.innerHeight}})
     }
     render() {
-        const {children} = this.props
+        const {children, SignOut} = this.props
         const {WindowSize}= this.state
         const height = WindowSize.height-65
         return (
@@ -41,7 +44,7 @@ class Layout extends Component {
                         </div> */}
                   </div>
                     <div className="col-md-10 layout" id="layout-menu">
-                        <Navbar/>
+                        <Navbar />
                     </div>
                 </div>
                  <div className="col-md-12 row " id="bottom-section">
@@ -58,4 +61,16 @@ class Layout extends Component {
     }
 }
 
-export default Layout
+const mapStateToProps = (state) => {
+    // console.log(state.gitHubApiData)
+    return {
+    }
+  };
+
+  const mapDispatchToProps = {};
+  
+  export default connect(mapStateToProps, 
+    mapDispatchToProps
+  )(Layout);
+
+

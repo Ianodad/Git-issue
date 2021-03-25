@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import { FaSearch  } from 'react-icons/fa';
 import { connect } from "react-redux";
 
@@ -11,20 +11,27 @@ import "./Navbar.css"
 
 
 
-import { gitHubApiActions } from "../../_actions";
+import { gitHubApiActions, authActions } from "../../_actions";
 const { getSearchUser }= gitHubApiActions;
+const { SignOut, getUserState } = authActions
 
-function Index({getSearchUser}) {
+function Index({getSearchUser, SignOut, getUserState, user}) {
    const history = useHistory();
+   
+   const [userInfo, setUserInfo] = useState(false);
 
 
+   useEffect(() => {
+     getUserState()
+
+    }, [getUserState])
 
   const handleSearch=({query})=>{
     getSearchUser(query);
     // history.push(`/search/${query}`);
     // window.location = `/search/${query}`
   }
-
+  console.log(user)
   return (
     <>
       <nav className="navbar navbar-expand-md  mt-1" style={{height:"55px"}} >
@@ -52,8 +59,8 @@ function Index({getSearchUser}) {
           </Form>
         </div>
         <div className="navbar-nav">
-          <p className="nav-item col">Username</p>
-          <a href="#" className="nav-item col">
+          <p className="nav-item col">{ user ? user : "Username" }</p>
+          <a href="#" className="nav-item col" onClick={()=>SignOut()}>
             <RiLogoutBoxRLine />
           </a>
         </div>
@@ -63,12 +70,15 @@ function Index({getSearchUser}) {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state.gitHubApiData)
+
   return {
-    searchResults: state.gitHubApiData.userSearchResults
+    searchResults: state.gitHubApiData.userSearchResults,
+    user: state.auth.user.login
   };
 };
 
 export default connect(mapStateToProps, {
-  getSearchUser
+  getSearchUser,
+  getUserState,
+  SignOut
 })(Index)

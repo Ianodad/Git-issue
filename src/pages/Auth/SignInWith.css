@@ -1,0 +1,32 @@
+.signinwith {
+    /* width: 640px; */
+    margin: 200px auto;
+  	font-size: 15px;
+}
+
+.btn-green{
+    font-size:23px;
+    padding:0px 20px;
+    color: #fff;
+    background-color: #47a447;
+    border:none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:200px;
+    height: 50px;
+
+}
+
+.btn-github{
+    font-size:23px;
+    padding:0px 20px;
+    color: #fff;
+    background-color: #5a5a5a;
+    border:none;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width:100px;
+    height:50px;
+}

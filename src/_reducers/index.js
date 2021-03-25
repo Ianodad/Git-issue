@@ -4,6 +4,6 @@ import gitHubApiReducer from "./gitHubApi"
 
 export default combineReducers({
     auth: authReducer,
-    gitHubApiData:gitHubApiReducer
+    gitHubApiData: gitHubApiReducer
 
 })
