@@ -10,13 +10,13 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case GET_USER_STATE:
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
         ...state,
         user: action.payload,
       };
     case SIGN_IN_WITH_GITHUB:
-      console.log(action.payload);
+      // console.log(action.payload);
       return {
         ...state,
         user: action.payload,

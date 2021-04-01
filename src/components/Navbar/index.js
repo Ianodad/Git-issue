@@ -59,7 +59,7 @@ function Index({getSearchUser, SignOut, getUserState, user}) {
           </Form>
         </div>
         <div className="navbar-nav">
-          <p className="nav-item col">{ user ? user : "Username" }</p>
+          <p className="nav-item col">{ user ? user.login : "Username" }</p>
           <a href="#" className="nav-item col" onClick={()=>SignOut()}>
             <RiLogoutBoxRLine />
           </a>
@@ -73,7 +73,7 @@ const mapStateToProps = (state) => {
 
   return {
     searchResults: state.gitHubApiData.userSearchResults,
-    user: state.auth.user.login
+    user: state.auth,
   };
 };
 

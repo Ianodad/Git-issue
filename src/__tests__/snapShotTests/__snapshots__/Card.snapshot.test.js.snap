@@ -2,29 +2,29 @@
 
 exports[`Card component Matches the snapshot 1`] = `
 <div
-  class="col-xl-3 col-sm-6 col-12"
+  className="col-xl-3 col-sm-6 col-12"
 >
   <div
-    class="card m-0 m-2"
+    className="card m-0 m-2"
   >
     <div
-      class="card-content"
+      className="card-content"
     >
       <div
-        class="card-body p-1"
+        className="card-body p-1"
       >
         <div
-          class="media d-flex"
+          className="media d-flex"
         >
           <div
-            class="align-self-center"
+            className="align-self-center"
           >
             <i
-              class="icon-speech warning font-large-2 float-left"
+              className="icon-speech warning font-large-2 float-left"
             />
           </div>
           <div
-            class="media-body text-right ml-2"
+            className="media-body text-right ml-2"
           >
             <h3
               style={
@@ -35,6 +35,7 @@ exports[`Card component Matches the snapshot 1`] = `
               }
             />
             <span
+              data-testid="card-title"
               style={
                 Object {
                   "color": "",

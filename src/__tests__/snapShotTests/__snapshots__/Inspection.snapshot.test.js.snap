@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Main/> testing component Check component renders should render with given state from Redux store 1`] = `
+exports[`<Inspection/> testing component Check component renders should render with given state from Redux store 1`] = `
 <div
   className="container-fluid"
   id="layout"
@@ -32,13 +32,6 @@ exports[`<Main/> testing component Check component renders should render with gi
         >
           gitIssue
         </h1>
-      </div>
-      <div
-        className="text-right col-9 my-auto"
-      >
-        <p>
-          Username
-        </p>
       </div>
     </div>
     <div
@@ -120,6 +113,7 @@ exports[`<Main/> testing component Check component renders should render with gi
           <a
             className="nav-item col"
             href="#"
+            onClick={[Function]}
           >
             <svg
               fill="currentColor"
@@ -226,8 +220,23 @@ exports[`<Main/> testing component Check component renders should render with gi
         }
       }
     >
-      <div>
-        Nothing to see here
+      <div
+        className="container-fluid text-center"
+        style={
+          Object {
+            "marginTop": "25%",
+          }
+        }
+      >
+        Nothing to show please select and issue form 
+        <span>
+          <a
+            href="/issues"
+            onClick={[Function]}
+          >
+            Issues
+          </a>
+        </span>
       </div>
     </div>
   </div>
