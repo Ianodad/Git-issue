@@ -21,7 +21,7 @@ function Card({ title, count, style, image, onSubmit }) {
                 )}
               </div>
               {image && (
-              <Link className="media-body text-right my-auto mr-2" to={`/main/${title}`}>
+              <Link className="media-body text-right my-auto mr-2" to={`/main/${title}`} onClick={onSubmit}>
               {/* <div class="media-body text-right my-auto mr-2"> */}
                 <h3 data-testid="card-title">{title}</h3>
               {/* </div> */}

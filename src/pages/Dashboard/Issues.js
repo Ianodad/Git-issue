@@ -17,14 +17,9 @@ class Issues extends Component {
 
   componentDidMount = async () => {
     const owner = this.props.match.params.owner
-    // ? this.props.match.params.owner
-    // : "octocat";
+ 
     const repo = this.props.match.params.repo
-    // ? this.props.match.params.repo
-    // : "hello-world";
-    // console.log(this.props.match.params.username, this.props.match.params.repo);
-    //  owner="octocat", repo="hello-world"
-    // console.log(owner, repo);
+
     if (repo && owner){
       await this.props.getAllOwnerRepoIssues(owner, repo);
       this.setState({repo, owner});
@@ -34,16 +29,9 @@ class Issues extends Component {
   };
 
   render() {
-    const { repoIssues } = this.props;
+    const { repoIssues, history } = this.props;
     const { repo, owner} = this.state;
     console.log(repoIssues);
-    // if (repoIssues.length <= 0) {
-    //   return (
-    //     <Layout>
-    //       <div>Loading ....</div>
-    //     </Layout>
-    //   );
-    // }
     return (
       <div>
         <Layout>

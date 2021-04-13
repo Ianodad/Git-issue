@@ -31,6 +31,7 @@ class Layout extends Component {
         const {children, SignOut} = this.props
         const {WindowSize}= this.state
         const height = WindowSize.height-65
+
         return (
             <>
             <div className="container-fluid" id="layout">

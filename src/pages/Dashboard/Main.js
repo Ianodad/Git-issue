@@ -15,13 +15,21 @@ var _ = require('lodash');
 const { getAllOwnerRepoIssues, getAllOwnerRepos }= gitHubApiActions;
 
 class Main extends Component {
+  constructor(props) {
+    super(props);
+    // Don't call this.setState() here!
+    this.state = {};
+   
+  }
+
   componentDidMount = async () => {
 
-    const owner = localStorage.getItem("selectUser")
-    ? localStorage.getItem("selectUser")
-    : "octocat"; 
+    const owner = this.props.match.params.name
+    ? this.props.match.params.name
+    : JSON.parse(localStorage.getItem("selectUser")) ? JSON.parse(localStorage.getItem("selectUser")) :JSON.parse(localStorage.getItem("USER")).login; 
     this.props.getAllOwnerRepoIssues();
-    this.props.getAllOwnerRepos(JSON.parse(owner));
+    this.props.getAllOwnerRepos(owner);
+
     // this.setState({data: await this.props.getAllOwnerRepoIssues() })
   };
 
@@ -36,12 +44,13 @@ class Main extends Component {
 
   }
   render() {
-    const { allOwnerRepos } = this.props;
+    const { allOwnerRepos, history} = this.props;
     const repoCount = allOwnerRepos.length;
     const issue_count = this.sumBy(allOwnerRepos);
     const countSum = this.countBy(allOwnerRepos)
     const issuePercent = (100 * countSum.true)/allOwnerRepos.length
     console.log(allOwnerRepos)
+    console.log(history)
     // console.log(allOwnerRepos)
     // console.log(allOwnerRepos[0].owner.login)
     if (!allOwnerRepos) {

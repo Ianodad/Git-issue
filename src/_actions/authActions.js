@@ -7,7 +7,8 @@ import {
   GET_USER_STATE,
 } from "./types";
 
-const SignInWithGithub = () => async (dispatch) => {
+const SignInWithGithub = (history) => async (dispatch) => {
+  
   console.log("github");
   const provider = new firebase.auth.GithubAuthProvider();
 
@@ -36,7 +37,8 @@ const SignInWithGithub = () => async (dispatch) => {
         payload: userGithub,
       });
 
-      window.location = `/`;
+      history.push('/')
+      // window.location = `/`;
     }
 
     // if (userGithub) {
@@ -88,7 +90,7 @@ const SignOut = () => async (dispatch) => {
 const getUserState = () => async (dispatch) => {
   const userState = await JSON.parse(localStorage.getItem("USER"));
   // console.log(await JSON.parse(localStorage.getItem("USER")))
-  // console.log(userState)
+  console.log(userState)
 
   if (userState) {
     dispatch({

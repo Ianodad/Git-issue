@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import firebase from "../../config/firebase";
+
 // import SignIn from './SignIn';
 import SignUp from "./SignUp";
 import SignInWith from "./SignInWith";
@@ -17,15 +19,15 @@ class Index extends Component {
     console.log(this.props);
   }
   render() {
-    const { SignInWithGithub, SignInAnonymous } = this.props;
-
+    const { SignInWithGithub, SignInAnonymous, history } = this.props;
+    console.log(history);
     return (
       <div className="auth row">
         <div className="col-md-4"></div>
         <div className="col-md-6">
           <h2 className="mx-auto display-3" style={ {'paddingTop':'3em', 'paddingLeft':'5em'} }><strong>GIT ISSUE</strong></h2>
           <SignInWith
-            signInWithGithub={() => SignInWithGithub()}
+            signInWithGithub={() => SignInWithGithub(history)}
             SignInAnonymously={() => SignInAnonymous}
           />
         </div>
