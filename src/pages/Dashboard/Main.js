@@ -26,9 +26,11 @@ class Main extends Component {
 
   componentDidMount = async () => {
 
+    let loginUser = JSON.parse(localStorage.getItem("USER")) ? JSON.parse(localStorage.getItem("USER")).login : "octocat"
+    console.log(loginUser)
     const owner = this.props.match.params.name
     ? this.props.match.params.name
-    : JSON.parse(localStorage.getItem("selectUser")) ? JSON.parse(localStorage.getItem("selectUser")) : JSON.parse(localStorage.getItem("USER")).login; 
+    : JSON.parse(localStorage.getItem("selectUser")) ? JSON.parse(localStorage.getItem("selectUser")) : loginUser; 
     console.log(owner)
     this.setState({owner})
     await this.props.getAllOwnerRepoIssues();
@@ -64,13 +66,15 @@ class Main extends Component {
     }
     return (
       <div>
+        {console.log(allOwnerRepos)}
         <Layout>
           <div className="container-fluid mt-4">
             <div className="username">
               <p className="mb-0 pb-0" style={{ color: "#C3C3E5" }}>
                 Selected user
               </p>
-              <a href={this.state.owner} className="mt-0 pt-0">
+              
+              <a href={`https://github.com/${this.state.owner}`} className="mt-0 pt-0">
                 <h4
                   className="mt-0"
                   style={{
@@ -79,7 +83,7 @@ class Main extends Component {
                     color: "#443266",
                   }}
                 >
-                  {allOwnerRepos[0].owner.login}
+                  {this.state.owner}
                 </h4>
               </a>
             </div>
