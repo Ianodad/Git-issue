@@ -18,7 +18,9 @@ class Main extends Component {
   constructor(props) {
     super(props);
     // Don't call this.setState() here!
-    this.state = {};
+    this.state = {
+      owner: ''
+    };
    
   }
 
@@ -26,9 +28,11 @@ class Main extends Component {
 
     const owner = this.props.match.params.name
     ? this.props.match.params.name
-    : JSON.parse(localStorage.getItem("selectUser")) ? JSON.parse(localStorage.getItem("selectUser")) :JSON.parse(localStorage.getItem("USER")).login; 
-    this.props.getAllOwnerRepoIssues();
-    this.props.getAllOwnerRepos(owner);
+    : JSON.parse(localStorage.getItem("selectUser")) ? JSON.parse(localStorage.getItem("selectUser")) : JSON.parse(localStorage.getItem("USER")).login; 
+    console.log(owner)
+    this.setState({owner})
+    await this.props.getAllOwnerRepoIssues();
+    await this.props.getAllOwnerRepos(owner);
 
     // this.setState({data: await this.props.getAllOwnerRepoIssues() })
   };
@@ -50,8 +54,6 @@ class Main extends Component {
     const countSum = this.countBy(allOwnerRepos)
     const issuePercent = (100 * countSum.true)/allOwnerRepos.length
     console.log(allOwnerRepos)
-    console.log(history)
-    // console.log(allOwnerRepos)
     // console.log(allOwnerRepos[0].owner.login)
     if (!allOwnerRepos) {
       return (
@@ -68,7 +70,7 @@ class Main extends Component {
               <p className="mb-0 pb-0" style={{ color: "#C3C3E5" }}>
                 Selected user
               </p>
-              <a href={allOwnerRepos[0].owner} className="mt-0 pt-0">
+              <a href={this.state.owner} className="mt-0 pt-0">
                 <h4
                   className="mt-0"
                   style={{

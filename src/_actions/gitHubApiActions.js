@@ -39,7 +39,7 @@ const getAllOwnerRepos =(owner) => async (dispatch) => {
 }
 // get all repo issues.
 const  getAllOwnerRepoIssues = (owner, repo) => async (dispatch) => {
-  console.log({owner, repo})
+  // console.log({owner, repo})
   try {
     if (owner && repo) {
       const {data}= await gitHubApi.getAllOwnerRepoIssues(owner, repo)

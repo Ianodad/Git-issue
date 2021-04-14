@@ -58,7 +58,7 @@ function Index({getSearchUser, SignOut, getUserState, user, history}) {
           </Form>
         </div>
         <div className="navbar-nav">
-          <p className="nav-item col">{ JSON.parse(localStorage.getItem("USER")).login ? JSON.parse(localStorage.getItem("USER")).login : "Username" }</p>
+          <p className="nav-item col">{ JSON.parse(localStorage.getItem("USER")) ? JSON.parse(localStorage.getItem("USER")).login : "Username" }</p>
           <a href="#" className="nav-item col" onClick={()=>SignOut()}>
             <RiLogoutBoxRLine />
           </a>
