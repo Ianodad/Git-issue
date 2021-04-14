@@ -28,13 +28,13 @@ class Layout extends Component {
         this.setState({WindowSize: { width: window.innerWidth, height: window.innerHeight}})
     }
     render() {
-        const {children, SignOut} = this.props
+        const {children, SignOut, auth} = this.props
         const {WindowSize}= this.state
         const height = WindowSize.height-65
 
         return (
             <>
-            <div className="container-fluid" id="layout">
+            <div className={`container-fluid ${auth}`} id="layout">
                 <div className="col-md-12 row py-0" id="top-section" style={{height:"60px"}}>
                     <div className="col-md-2 col-12 row mx-auto py-2" id="layout-logo">
                         <div className="col-2 my-auto">

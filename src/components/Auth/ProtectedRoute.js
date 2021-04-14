@@ -40,7 +40,7 @@ const ProtectedRoute = ({
       {...rest}
       path={path}
       render={(props) => {
-        if (false)
+        if (!JSON.parse(localStorage.getItem("USER")))
           return <Redirect to="/auth" />;
         return Component ? <Component {...props} /> : render(props);
       }}

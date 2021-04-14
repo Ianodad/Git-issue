@@ -50,7 +50,7 @@ class Main extends Component {
 
   }
   render() {
-    const { allOwnerRepos, history} = this.props;
+    const { allOwnerRepos} = this.props;
     const repoCount = allOwnerRepos.length;
     const issue_count = this.sumBy(allOwnerRepos);
     const countSum = this.countBy(allOwnerRepos)

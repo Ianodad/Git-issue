@@ -23,15 +23,17 @@ class Index extends Component {
     console.log(history);
     return (
       <div className="auth row">
-        <div className="col-md-4"></div>
-        <div className="col-md-6">
-          <h2 className="mx-auto display-3" style={ {'paddingTop':'3em', 'paddingLeft':'5em'} }><strong>GIT ISSUE</strong></h2>
+        {/* <div className="col-md-4"></div> */}
+        <div className="col-md-6 mx-auto">
+          <h2 className="mx-auto mb-4 display-3" id="git-issue" style={ {'paddingTop':'3em'} }><strong>GIT ISSUE</strong></h2>
+          <div className="mt-4">
           <SignInWith
             signInWithGithub={() => SignInWithGithub(history)}
             SignInAnonymously={() => SignInAnonymous}
           />
+          </div>
         </div>
-        <div className="col-md-3"></div>
+        {/* <div className="col-md-3"></div> */}
       </div>
     );
   }
