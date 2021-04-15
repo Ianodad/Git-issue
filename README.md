@@ -35,6 +35,20 @@ To Visit App:
 
 `localhost:3000`  
 
+
+### Screen Shots
+
+# Login Page
+![Login Page](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Git%20issue%20login.png?raw=true)
+# Main Dashboard
+![Main Dashboard](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Main%20Page.png?raw=true)
+
+# Issue Dashboard
+![ISsue Dashboard](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Issue%20Dashbaord.png?raw=true)
+
+# Inspection Dashbaord
+![Inspection Dashboard](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Inspection.png?raw=true)
+
 ### Run with Docker
 ```console
 cd Client

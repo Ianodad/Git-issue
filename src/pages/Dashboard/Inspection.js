@@ -23,7 +23,7 @@ class Inspection extends Component {
 
 
   render() {
-    const {issue} = this.props
+    const {issue, history} = this.props
     console.log(issue)
     if (!issue){
       return (
@@ -32,9 +32,10 @@ class Inspection extends Component {
         </Layout>
       )
     } 
+    console.log(history)
     return (
       <>
-        <Layout>
+        <Layout >
           <div className="container-fluid">
             <div className="card mt-4">
               <div className="card-header" style={{backgroundColor: '#F1F0FF'}}>

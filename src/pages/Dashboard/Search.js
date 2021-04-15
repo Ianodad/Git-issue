@@ -20,7 +20,7 @@ class Search extends Component {
   componentDidMount = async () => {
     // console.log(JSON.parse(localStorage.getItem("userSearchResult")))
     this.setState({
-      results: await JSON.parse(localStorage.getItem("userSearchResult")),
+      results: this.props.searchResults,
     });    // console.log(this.props.userSearchResults)
     // this.setState({results:this.props.userSearchResults})
   };
@@ -67,7 +67,6 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state) => {
-  // console.log(state.gitHubApiData)
   return {
     searchResults: state.gitHubApiData.userSearchResults
   };

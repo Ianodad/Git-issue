@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 
 import { RiLogoutBoxRLine } from "react-icons/ri";
 import {Form, FormField, SubmitButton} from '../../components/Forms';
+import { withRouter } from 'react-router'
 
-import { useHistory } from 'react-router-dom';
 
 import "./Navbar.css"
 
@@ -15,9 +15,8 @@ import { gitHubApiActions, authActions } from "../../_actions";
 const { getSearchUser }= gitHubApiActions;
 const { SignOut, getUserState } = authActions
 
-function Index({getSearchUser, SignOut, getUserState, user}) {
-   const history = useHistory();
-   
+function Index({getSearchUser, SignOut, getUserState, user, history}) {
+  //  const {history} = props
    const [userInfo, setUserInfo] = useState(false);
 
 
@@ -27,11 +26,11 @@ function Index({getSearchUser, SignOut, getUserState, user}) {
     }, [getUserState])
 
   const handleSearch=({query})=>{
-    getSearchUser(query);
+    // console.log(props)
+    getSearchUser(query, history);
     // history.push(`/search/${query}`);
     // window.location = `/search/${query}`
   }
-  console.log(user)
   return (
     <>
       <nav className="navbar navbar-expand-md  mt-1" style={{height:"55px"}} >
@@ -59,7 +58,7 @@ function Index({getSearchUser, SignOut, getUserState, user}) {
           </Form>
         </div>
         <div className="navbar-nav">
-          <p className="nav-item col">{ user ? user.login : "Username" }</p>
+          <p className="nav-item col">{ JSON.parse(localStorage.getItem("USER")) ? JSON.parse(localStorage.getItem("USER")).login : "Username" }</p>
           <a href="#" className="nav-item col" onClick={()=>SignOut()}>
             <RiLogoutBoxRLine />
           </a>
@@ -81,4 +80,4 @@ export default connect(mapStateToProps, {
   getSearchUser,
   getUserState,
   SignOut
-})(Index)
+})(withRouter(Index))

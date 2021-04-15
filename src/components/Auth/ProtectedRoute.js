@@ -17,7 +17,6 @@ const ProtectedRoute = ({
   ...rest
 }) => {
   const [userState, setUser] = useState(false);
-  console.log(user);
 
   useEffect(() => {
     // var user = firebase.auth().currentUser;

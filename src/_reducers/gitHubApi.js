@@ -3,7 +3,7 @@ import {GET_SEARCH_USER, GET_ALL_OWNER_REPOS, GET_ALL_OWNER_ISSUES, GET_ALL_OWNE
 
 
 const initialState = {
-  userSearchResult:"",
+  userSearchResults:"",
   allOwnerRepos:"",
   allOwnerIssues:"", 
   allOwnerRepoIssues: "",
@@ -19,7 +19,7 @@ export default (state = initialState, action) => {
       // console.log(action.payload);
       return {
         ...state,
-        userSearchResult: action.payload,
+        userSearchResults: action.payload,
       };
     case GET_ALL_OWNER_REPOS:
       return {

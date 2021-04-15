@@ -8,19 +8,19 @@ import {GET_SEARCH_USER, GET_ALL_OWNER_REPOS,  GET_ALL_OWNER_ISSUES, GET_ALL_OWN
 // default username == octocat
 // default repo == "Hello-World"
 // search user 
-const getSearchUser = (query) => async (dispatch) => {
+const getSearchUser = (query, history) => async (dispatch) => {
 
   try {
     const {data} = await gitHubApi.getSearchUser(query)
-    localStorage.setItem("userSearchResult", JSON.stringify(data.items))
-
+    // localStorage.setItem("userSearchResult", JSON.stringify(data.items))
+    // console.log(data.items)
     dispatch({
        type: GET_SEARCH_USER,
        payload: data.items,
      });
 
    if (data) {
-    window.location=`/search/${query}`
+    history.push(`/search/${query}`) 
   }
   } catch (error) {
     console.log(error) 
@@ -39,7 +39,7 @@ const getAllOwnerRepos =(owner) => async (dispatch) => {
 }
 // get all repo issues.
 const  getAllOwnerRepoIssues = (owner, repo) => async (dispatch) => {
-  console.log({owner, repo})
+  // console.log({owner, repo})
   try {
     if (owner && repo) {
       const {data}= await gitHubApi.getAllOwnerRepoIssues(owner, repo)

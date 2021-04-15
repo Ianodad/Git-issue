@@ -7,6 +7,7 @@ import Navbar from "../components/Navbar"
 import { authActions } from "../_actions";
 
 import { connect } from "react-redux"
+// import logo from "../assets/img/GitIssue Logo.png"
 
 import "./Layout.css";
 
@@ -28,16 +29,19 @@ class Layout extends Component {
         this.setState({WindowSize: { width: window.innerWidth, height: window.innerHeight}})
     }
     render() {
-        const {children, SignOut} = this.props
+        const {children, SignOut, auth} = this.props
         const {WindowSize}= this.state
         const height = WindowSize.height-65
+
         return (
             <>
-            <div className="container-fluid" id="layout">
+            <div className={`container-fluid ${auth}`} id="layout">
                 <div className="col-md-12 row py-0" id="top-section" style={{height:"60px"}}>
                     <div className="col-md-2 col-12 row mx-auto py-2" id="layout-logo">
-                        <div className="col-2 my-auto">
-                            <h1 className="mx-auto" id="logo-main" style={{fontSize:"3vh",}}>gitIssue</h1>
+                        <div className="col-2 my-auto" id="logo">
+                            {/* <img src={require('../assets/img/GitIssue-Logo.svg')} alt="logo" /> */}
+                             <img src={require('../assets/img/GitIssue_Logo.png').default}  alt="logo" />
+                            {/* <h1 className="mx-auto" id="logo-main" style={{fontSize:"3vh",}}>gitIssue</h1> */}
                         </div>
                         {/* <div className="text-right col-9 my-auto">
                             <p>Username</p>

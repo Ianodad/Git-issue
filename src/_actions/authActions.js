@@ -7,8 +7,8 @@ import {
   GET_USER_STATE,
 } from "./types";
 
-const SignInWithGithub = () => async (dispatch) => {
-  console.log("github");
+const SignInWithGithub = (history) => async (dispatch) => {
+  
   const provider = new firebase.auth.GithubAuthProvider();
 
   // await firebase.auth().signInWithRedirect(provider);
@@ -36,7 +36,8 @@ const SignInWithGithub = () => async (dispatch) => {
         payload: userGithub,
       });
 
-      window.location = `/`;
+      history.push('/')
+      // window.location = `/`;
     }
 
     // if (userGithub) {
