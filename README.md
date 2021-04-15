@@ -39,9 +39,9 @@ To Visit App:
 ### Screen Shots
 
 # Login Page
-![Login Page](screenshots/Git issue login.png)
+![Login Page](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Git%20issue%20login.png?raw=true)
 # Main Dashboard
-![Main Dashboard](screenshots/https://github.com/Ianodad/Git-issue/blob/main/screenshots/Main%20Page.png?raw=true)
+![Main Dashboard](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Main%20Page.png?raw=true)
 
 # Issue Dashboard
 ![ISsue Dashboard](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Issue%20Dashbaord.png?raw=true)
