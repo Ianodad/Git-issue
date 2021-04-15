@@ -39,15 +39,15 @@ To Visit App:
 ### Screen Shots
 
 # Login Page
-![alt text](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Git%20issue%20login%20.png?raw=true)
+![Login Page](screenshots/Git issue login.png)
 # Main Dashboard
-![alt text](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Main%20Page.png?raw=true)
+![Main Dashboard](screenshots/https://github.com/Ianodad/Git-issue/blob/main/screenshots/Main%20Page.png?raw=true)
 
 # Issue Dashboard
-![alt text](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Issue%20Dashbaord.png?raw=true)
+![ISsue Dashboard](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Issue%20Dashbaord.png?raw=true)
 
 # Inspection Dashbaord
-![alt text](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Inspection.png?raw=true)
+![Inspection Dashboard](https://github.com/Ianodad/Git-issue/blob/main/screenshots/Inspection.png?raw=true)
 
 ### Run with Docker
 ```console
