@@ -7,9 +7,11 @@ import Table from '../../components/Table';
 import { gitHubApiActions } from "../../_actions";
 
 import { connect } from "react-redux";
+
+// Graphql 
+
+import { fetchReposWithIssues}  from '../../graphql/constants';
 var _ = require('lodash');
-
-
 // import githubApi from "../../api/githubApi";
 // github api action imported from actions 
 const { getAllOwnerRepoIssues, getAllOwnerRepos }= gitHubApiActions;
@@ -27,15 +29,15 @@ class Main extends Component {
   componentDidMount = async () => {
 
     let loginUser = JSON.parse(localStorage.getItem("USER")) ? JSON.parse(localStorage.getItem("USER")).login : "octocat"
-    console.log(loginUser)
+    // console.log(loginUser)
     const owner = this.props.match.params.name
     ? this.props.match.params.name
     : JSON.parse(localStorage.getItem("selectUser")) ? JSON.parse(localStorage.getItem("selectUser")) : loginUser; 
-    console.log(owner)
+    // console.log(owner)
     this.setState({owner})
     await this.props.getAllOwnerRepoIssues();
     await this.props.getAllOwnerRepos(owner);
-
+    fetchReposWithIssues()
     // this.setState({data: await this.props.getAllOwnerRepoIssues() })
   };
 
@@ -55,7 +57,7 @@ class Main extends Component {
     const issue_count = this.sumBy(allOwnerRepos);
     const countSum = this.countBy(allOwnerRepos)
     const issuePercent = (100 * countSum.true)/allOwnerRepos.length
-    console.log(allOwnerRepos)
+    // console.log(allOwnerRepos)
     // console.log(allOwnerRepos[0].owner.login)
     if (!allOwnerRepos) {
       return (
@@ -66,7 +68,7 @@ class Main extends Component {
     }
     return (
       <div>
-        {console.log(allOwnerRepos)}
+        {/* {console.log(allOwnerRepos)} */}
         <Layout>
           <div className="container-fluid mt-4">
             <div className="username">

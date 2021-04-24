@@ -1,8 +1,5 @@
-import graphql from './client';
-import {userRepoIssuesCommentsQuery} from './queries'
-
-const query  = `{
-    user(login: "fabpot") {
+ export const userRepoIssuesCommentsQuery = `query($login: String!){
+    user(login: $login) {
       repositories(first: 20 isFork: false) {
         nodes {
           id
@@ -35,22 +32,21 @@ const query  = `{
         }
       }
     }
-  }`
+  `
 
-  const variables = {login:"fabpot"}
-
-export const fetchReposWithIssues = async () => {
-    let response = await graphql.post('/graphql', {query:userRepoIssuesCommentsQuery, variables:variables})
-
-    // console.log(response)
-    let { data } = response.data;
-    console.log(data);
-  };
-
-export const search = async () => {
-  let response = await graphql.post('/graphql', {query:query})
-  console.log(response)
-  // let {data} = response.data
-  // console.log(data)
-
-}
+export const search = `query($name: String!) {
+  search(query: $name, type: USER, first: 100) {
+    edges {
+      node {
+        __typename
+        ... on User {
+          id
+          login
+          url
+          avatarUrl
+        }
+      }
+    }
+    userCount
+  }
+}`
