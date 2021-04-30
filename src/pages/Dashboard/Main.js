@@ -10,7 +10,7 @@ import { connect } from "react-redux";
 
 // Graphql 
 
-import { fetchReposWithIssues}  from '../../graphql/constants';
+import { fetchReposWithIssues, search}  from '../../graphql/constants';
 var _ = require('lodash');
 // import githubApi from "../../api/githubApi";
 // github api action imported from actions 
@@ -37,7 +37,10 @@ class Main extends Component {
     this.setState({owner})
     await this.props.getAllOwnerRepoIssues();
     await this.props.getAllOwnerRepos(owner);
-    fetchReposWithIssues()
+    const repoVariables={login:"fabpot"}
+    fetchReposWithIssues(repoVariables)
+    const searchVariables={name:'ian'}
+
     // this.setState({data: await this.props.getAllOwnerRepoIssues() })
   };
 

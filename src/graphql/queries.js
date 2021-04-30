@@ -32,9 +32,10 @@
         }
       }
     }
+  }
   `
 
-export const search = `query($name: String!) {
+export const searchQuery = `query($name: String!) {
   search(query: $name, type: USER, first: 100) {
     edges {
       node {

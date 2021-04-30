@@ -1,5 +1,5 @@
 import graphql from './client';
-import {userRepoIssuesCommentsQuery} from './queries'
+import {userRepoIssuesCommentsQuery, searchQuery} from './queries'
 
 const query  = `{
     user(login: "fabpot") {
@@ -37,18 +37,18 @@ const query  = `{
     }
   }`
 
-  const variables = {login:"fabpot"}
+  
+export const fetchReposWithIssues = async (variables) => {
+    // console.log(userRepoIssuesCommentsQuery)
+    let response = await graphql.post('/graphql', {query:userRepoIssuesCommentsQuery, variables})
 
-export const fetchReposWithIssues = async () => {
-    let response = await graphql.post('/graphql', {query:userRepoIssuesCommentsQuery, variables:variables})
-
-    // console.log(response)
+    console.log(response)
     let { data } = response.data;
-    console.log(data);
+    // console.log(data);
   };
 
-export const search = async () => {
-  let response = await graphql.post('/graphql', {query:query})
+export const search = async (variables) => {
+  let response = await graphql.post('/graphql', {query:searchQuery, variables:variables})
   console.log(response)
   // let {data} = response.data
   // console.log(data)
